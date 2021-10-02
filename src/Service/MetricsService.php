@@ -9,7 +9,9 @@ namespace ItkDev\MetricsBundle\Service;
 use Prometheus\CollectorRegistry;
 use Prometheus\Exception\MetricsRegistrationException;
 use Prometheus\RenderTextFormat;
+use Prometheus\Storage\APC;
 use Prometheus\Storage\InMemory;
+use Prometheus\Storage\Redis;
 
 /**
  * Class MetricsService.
@@ -18,6 +20,10 @@ class MetricsService
 {
     private CollectorRegistry $registry;
     private string $namespace;
+
+    public const INMEMORY = "memory";
+    public const APCU = "apcu";
+    public const REDIS = "redis";
 
     /**
      * MetricsService constructor.
@@ -30,8 +36,21 @@ class MetricsService
     {
         $this->namespace = $namespace;
 
-        // @TODO: Use type to create adapter and options.
-        $adapter = new InMemory();
+        switch ($adapterType) {
+            case MetricsService::INMEMORY:
+                $adapter = new InMemory();
+                break;
+
+            case MetricsService::APCU:
+                $adapter = new APC();
+                break;
+
+            case MetricsService::REDIS:
+                $adapter = new Redis([
+                    'host' => $options['host'],
+                    'port' => $options['port'],
+                ]);
+        }
 
         $this->registry = new CollectorRegistry($adapter);
     }

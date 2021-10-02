@@ -24,7 +24,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('adapter')->info('Storage adapter to use')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->enumNode('type')->values(['apcu', 'memory', 'redis'])->defaultValue('inMemory')->end()
+                        ->enumNode('type')->values(['apcu', 'memory', 'redis'])->defaultValue('redis')->end()
                         ->arrayNode('options')->info('Connection options is only used by redis adapter')
                             ->addDefaultsIfNotSet()
                             ->children()
