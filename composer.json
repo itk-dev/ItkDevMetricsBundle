@@ -1,0 +1,20 @@
+{
+    "name": "itkdev/metrics-bundle",
+    "description": "Provide metrics for prometheus",
+    "type": "symfony-bundle",
+    "require": {
+        "promphp/prometheus_client_php": "^2.2"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "ItkDev\\MetricsBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jesper Kristensen",
+            "email": "cableman@linuxdev.dk"
+        }
+    ]
+}

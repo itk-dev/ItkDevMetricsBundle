@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="itk_dev_metrics.service.metrics_service" class="ItkDev\MetricsBundle\Service\MetricsService" public="true" />
+        <service id="ItkDev\MetricsBundle\Service\MetricsService" alias="itk_dev_metrics.service.metrics_service" public="false" />
+    </services>
+</container>
