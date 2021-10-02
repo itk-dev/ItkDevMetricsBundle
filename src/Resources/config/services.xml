@@ -4,5 +4,12 @@
     <services>
         <service id="itk_dev_metrics.service.metrics_service" class="ItkDev\MetricsBundle\Service\MetricsService" public="true" />
         <service id="ItkDev\MetricsBundle\Service\MetricsService" alias="itk_dev_metrics.service.metrics_service" public="false" />
+        <service id="itk_dev_metrics.controller.metrics_controller" class="ItkDev\MetricsBundle\Controller\MetricsController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="container.service_subscriber"/>
+            <argument type="service" id="itk_dev_metrics.service.metrics_service"/>
+        </service>
     </services>
 </container>
