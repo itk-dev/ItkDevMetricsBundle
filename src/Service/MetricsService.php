@@ -22,9 +22,9 @@ class MetricsService
     private CollectorRegistry $registry;
     private string $namespace;
 
-    public const INMEMORY = "memory";
-    public const APCU = "apcu";
-    public const REDIS = "redis";
+    public const INMEMORY = 'memory';
+    public const APCU = 'apcu';
+    public const REDIS = 'redis';
 
     /**
      * MetricsService constructor.

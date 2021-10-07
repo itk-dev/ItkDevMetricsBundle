@@ -7,7 +7,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 class ItkDevMetricsBundle extends Bundle
 {
-
     /**
      * Overridden to allow for the custom extension alias.
      */
@@ -16,6 +15,7 @@ class ItkDevMetricsBundle extends Bundle
         if (null === $this->extension) {
             $this->extension = new ItkDevMetricsExtension();
         }
+
         return $this->extension;
     }
 }
