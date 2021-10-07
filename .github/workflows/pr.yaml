@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ["7.4", "8.0"]
+        php: ["7.4", "8.0", "8.1"]
     name: Validate composer (PHP ${{ matrix.php}})
     steps:
       - name: Checkout
@@ -33,15 +33,12 @@ jobs:
       - name: Validate composer files
         run: composer validate composer.json --strict
 
-      - name: Normalize composer files
-        run: composer normalize --dry-run
-
   php-cs-fixer:
     runs-on: ubuntu-20.04
     strategy:
       fail-fast: false
       matrix:
-        php: ["7.4", "8.0"]
+        php: ["7.4", "8.0", "8.1"]
     name: PHP Coding Standards Fixer (PHP ${{ matrix.php }})
     steps:
       - name: Checkout
@@ -94,7 +91,7 @@ jobs:
       - name: Yarn install
         uses: actions/setup-node@v2
         with:
-          node-version: "12"
+          node-version: "14"
       - run: yarn install
 
       - name: markdownlint
