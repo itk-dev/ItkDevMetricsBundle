@@ -44,6 +44,7 @@ class MetricsController extends AbstractController
         if (!ini_get('opcache.enable')) {
             // Opcache was not enabled.
             $this->metricsService->gauge('php_opcache_enabled', 'opcache enabled', 0);
+
             return;
         }
 
@@ -87,6 +88,7 @@ class MetricsController extends AbstractController
         if (!ini_get('apc.enabled')) {
             // Opcache was not enabled.
             $this->metricsService->gauge('php_apcu_enabled', 'APC enabled', 0);
+
             return;
         }
 
