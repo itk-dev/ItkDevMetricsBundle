@@ -2,22 +2,40 @@
     "name": "itkdev/metrics-bundle",
     "description": "Provide metrics for prometheus",
     "type": "symfony-bundle",
-    "require": {
-        "promphp/prometheus_client_php": "^2.2"
-    },
-    "require-dev": {
-        "symfony/framework-bundle": "5.3.*"
-    },
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "ItkDev\\MetricsBundle\\": "src/"
-        }
-    },
     "authors": [
         {
             "name": "Jesper Kristensen",
             "email": "cableman@linuxdev.dk"
         }
-    ]
+    ],
+    "require": {
+        "php": "^7.3|^7.4|^8.0|^8.1",
+        "promphp/prometheus_client_php": "^2.2"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "escapestudios/symfony2-coding-standard": "^3.12",
+        "vimeo/psalm": "^4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "ItkDev\\MetricsBundle\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "apply-coding-standards": [
+            "phpcbf --standard=phpcs.xml.dist"
+        ],
+        "check-coding-standards": [
+            "phpcs --standard=phpcs.xml.dist"
+        ],
+        "install-codestandards": [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "post-install-cmd": [
+            "@install-codestandards"
+        ]
+    }
 }
