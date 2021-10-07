@@ -21,6 +21,10 @@ class ItkDevMetricsExtension extends Extension
         $definition->setArgument(0, $config['namespace']);
         $definition->setArgument(1, $config['adapter']['type']);
         $definition->setArgument(2, $config['adapter']['options']);
+        $definition->setArgument(3, [
+            'opcache' => $config['extensions']['opcache'],
+            'apcu' => $config['extensions']['apcu'],
+        ]);
     }
 
     public function getAlias(): string

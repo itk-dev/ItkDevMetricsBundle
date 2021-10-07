@@ -26,15 +26,19 @@ class MetricsService
     public const APCU = 'apcu';
     public const REDIS = 'redis';
 
+    private array $extensions = [];
+
     /**
      * MetricsService constructor.
      *
      * @param string $namespace
      * @param string $adapterType
      * @param array $options
+     * @param array $extensions
      */
-    public function __construct(string $namespace, string $adapterType = MetricsService::INMEMORY, array $options = [])
+    public function __construct(string $namespace, string $adapterType = MetricsService::INMEMORY, array $options = [], array $extensions = [])
     {
+        $this->extensions = $extensions;
         $this->namespace = $namespace;
 
         switch ($adapterType) {
@@ -145,5 +149,27 @@ class MetricsService
         $renderer = new RenderTextFormat();
 
         return $renderer->render($this->registry->getMetricFamilySamples());
+    }
+
+    /**
+     * Check if Opcache metrics is enabled in bundle configuration.
+     *
+     * @return bool
+     *   True if enabled else false
+     */
+    public function isExtensionOpcacheEnabled(): bool
+    {
+        return !empty($this->extensions['opcache']) ?? $this->extensions['opcache'];
+    }
+
+    /**
+     * Check if APCu metrics is enabled in bundle configuration.
+     *
+     * @return bool
+     *   True if enabled else false
+     */
+    public function isExtensionApcuEnabled(): bool
+    {
+        return !empty($this->extensions['apcu']) ?? $this->extensions['apcu'];
     }
 }
