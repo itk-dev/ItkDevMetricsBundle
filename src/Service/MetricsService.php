@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Service to help collect metrics and render them.
@@ -32,7 +33,7 @@ class MetricsService
      * @param string $adapterType
      * @param array $options
      */
-    public function __construct(string $namespace, string $adapterType, array $options)
+    public function __construct(string $namespace, string $adapterType = MetricsService::INMEMORY, array $options = [])
     {
         $this->namespace = $namespace;
 

@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.3|^7.4|^8.0|^8.1",
+        "php": "^7.4|^8.0|^8.1",
         "promphp/prometheus_client_php": "^2.2"
     },
     "require-dev": {
@@ -25,10 +25,10 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit",
-        "apply-coding-standards": [
+        "coding-standards-apply": [
             "phpcbf --standard=phpcs.xml.dist"
         ],
-        "check-coding-standards": [
+        "coding-standards-check": [
             "phpcs --standard=phpcs.xml.dist"
         ],
         "install-codestandards": [
