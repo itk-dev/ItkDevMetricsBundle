@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="4.10.0@916b098b008f6de4543892b1e0651c1c3b92cbfa">
+  <file src="src/Controller/MetricsController.php">
+    <UndefinedClass occurrences="1">
+      <code>AbstractController</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/DependencyInjection/Configuration.php">
+    <UndefinedClass occurrences="1">
+      <code>ConfigurationInterface</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/DependencyInjection/ItkDevMetricsExtension.php">
+    <UndefinedClass occurrences="1">
+      <code>Extension</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/ItkDevMetricsBundle.php">
+    <UndefinedClass occurrences="1">
+      <code>Bundle</code>
+    </UndefinedClass>
+  </file>
+  <file src="src/Service/MetricsService.php">
+    <PossiblyUndefinedVariable occurrences="1">
+      <code>$adapter</code>
+    </PossiblyUndefinedVariable>
+  </file>
+</files>

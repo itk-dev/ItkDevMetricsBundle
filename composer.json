@@ -1,0 +1,34 @@
+{
+    "name": "itkdev/metrics-bundle",
+    "description": "Provide metrics for prometheus",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jesper Kristensen",
+            "email": "cableman@linuxdev.dk"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0|^8.1",
+        "promphp/prometheus_client_php": "^2.2"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^4.7",
+        "friendsofphp/php-cs-fixer": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "ItkDev\\MetricsBundle\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit",
+        "coding-standards-apply": [
+            "vendor/bin/php-cs-fixer fix"
+        ],
+        "coding-standards-check": [
+            "vendor/bin/php-cs-fixer fix --dry-run"
+        ]
+    }
+}
