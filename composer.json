@@ -1,5 +1,5 @@
 {
-    "name": "itkdev/metrics-bundle",
+    "name": "itk-dev/metrics-bundle",
     "description": "Provide metrics for prometheus",
     "type": "symfony-bundle",
     "license": "MIT",
