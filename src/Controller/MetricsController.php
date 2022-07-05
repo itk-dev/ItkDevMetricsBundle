@@ -8,11 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MetricsController extends AbstractController
 {
-    private MetricsService $metricsService;
-
-    public function __construct(MetricsService $metricsService)
-    {
-        $this->metricsService = $metricsService;
+    public function __construct(
+        private readonly MetricsService $metricsService
+    ) {
     }
 
     /**

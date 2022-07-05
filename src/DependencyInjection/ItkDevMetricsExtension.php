@@ -9,6 +9,9 @@ use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 class ItkDevMetricsExtension extends Extension
 {
+    /**
+     * @throws \Exception
+     */
     public function load(array $configs, ContainerBuilder $container)
     {
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
