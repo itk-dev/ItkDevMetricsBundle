@@ -41,21 +41,14 @@ class MetricsService
         $this->extensions = $extensions;
         $this->namespace = $namespace;
 
-        switch ($adapterType) {
-            case MetricsService::INMEMORY:
-                $adapter = new InMemory();
-                break;
-
-            case MetricsService::APCU:
-                $adapter = new APC();
-                break;
-
-            case MetricsService::REDIS:
-                $adapter = new Redis([
-                    'host' => $options['host'],
-                    'port' => $options['port'],
-                ]);
-        }
+        $adapter = match ($adapterType) {
+            MetricsService::APCU => new APC(),
+            MetricsService::REDIS => new Redis([
+                'host' => $options['host'],
+                'port' => $options['port'],
+            ]),
+            default => new InMemory(),
+        };
 
         $this->registry = new CollectorRegistry($adapter);
     }
