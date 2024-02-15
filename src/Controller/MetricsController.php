@@ -84,7 +84,7 @@ class MetricsController extends AbstractController
     private function apcuMetrics(): void
     {
         if (!ini_get('apc.enabled')) {
-            // Opcache was not enabled.
+            // APCu was not enabled.
             $this->metricsService->gauge('php_apcu_enabled', 'APC enabled', 0);
 
             return;
